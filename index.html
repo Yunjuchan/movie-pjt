@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  const root = document.getElementById("root")
+  function Title() {
+    return (
+      <h3 src="" id="title" onMouseEnter={() => console.log("mouse enter")}>
+      Hello I'm a title
+    </h3>
+    ) ;
+  }
+
+  const Button = () => (
+    <button 
+      style={{
+        backgroundColor: "tomato",
+      }}
+      onClick={() => console.log("I'm clicked")}
+    >
+      Click me
+    </button>
+  );
+
+  let counter = 0;
+  function countUp() {
+    counter += 1;
+    
+  }
+  
+  function render() {
+    ReactDOM.render(<App />, root)
+  }
+
+
+  function App () {
+    const data = React.useState(0);
+    const [counter, modifier] = data;
+    counter = 120;
+
+    return (
+      <div>
+        <h3>Total clicks: {counter}</h3>
+        <button>Click me</button>
+      </div>
+    );
+  }
+
+  render();
+  
+</script>
+</html>
